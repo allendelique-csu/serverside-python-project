@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Breeds and Facts{% endblock %}
+{% block content %}
+    <div class="container mx-auto p-2"></div>
+        <div class="mb-8 mx-auto container p-6 bg-white shadow-md rounded-lg">
+            <h2 class="text-2xl font-semibold mb-4">Breeds</h2>
+            <ul class="space-y-2">
+                {% for breed in breeds.data %}
+                    <li class="mb-2"><a href="/breeds/{{ breed.id }}" class="text-blue-500 hover:underline">{{ breed.attributes.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div class="mx-auto container p-6 bg-white shadow-md rounded-lg">
+            <h2 class="text-2xl font-semibold mb-4">Facts</h2>
+            <ul class="list-disc list-inside">
+                {% for fact in facts.data %}
+                    <li class="mb-2">{{ fact.attributes.body }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
